@@ -13,22 +13,10 @@ public class Main {
         int d = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
         
-        boolean check = false;
-        for(int i = 0; a <= k && d > 0 ; i++, a += d) {
-        	if(a == k) {
-        		check = true;
-        		bw.write(String.valueOf(i + 1));
-        	}
-        }
-        for(int i = 0; a >= k && d < 0; i++, a += d) {
-        	if(a == k) {
-        		check = true;
-        		bw.write(String.valueOf(i + 1));
-        	}
-        }
-        if(!check) {
+        if(((k - a) % d == 0) && (k - a) / d >= 0)
+        	bw.write(String.valueOf((k - a) / d + 1));
+        else 
         	bw.write("X");
-        }
 
         bw.flush();
         bw.close();
