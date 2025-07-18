@@ -16,6 +16,7 @@ public class Main {
 			BigInteger single = ri.multiply(new BigInteger(String.valueOf(s.charAt(i) - 96)));
 			result = result.add(single);
 		}
+		result = result.mod(new BigInteger("1234567891"));
 		System.out.print(result);
 	}
 	public static BigInteger power(int n) {
