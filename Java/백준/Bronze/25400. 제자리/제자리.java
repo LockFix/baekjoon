@@ -16,13 +16,10 @@ public class Main{
         for(int i = 0; i < N; i++) {
         	list.add(Integer.parseInt(st.nextToken()));
         }
-        for(int i = 0; i < list.size(); i++) {
-        	int temp = list.get(i);
-        	if(temp != i + 1) {
-        		list.remove(i);
-        		count++;
-        		i = -1;
-        	}
+        int i = 1;
+        for(int a : list) {
+        	if(a != i) count++;
+        	else i++;
         }
         System.out.print(count);
     }
