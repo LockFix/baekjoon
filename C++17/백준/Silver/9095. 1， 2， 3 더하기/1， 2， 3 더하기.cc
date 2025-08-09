@@ -8,7 +8,7 @@ int dp(int x) {
     if(x == 2) return 2;
     if(x == 3) return 4;
     if(memory[x] != 0) return memory[x];
-    return memory[x] = (dp(x - 1) + dp(x - 2) + dp(x - 3)) % 10007;
+    return memory[x] = dp(x - 1) + dp(x - 2) + dp(x - 3);
 }
 
 int main() {
