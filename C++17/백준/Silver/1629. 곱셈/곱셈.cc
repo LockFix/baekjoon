@@ -14,5 +14,5 @@ int main() {
     cout.tie(0);
 
     long long a, b; cin >> a >> b >> c;
-    cout << multiply(a, b) % c;
+    cout << multiply(a, b);
 }   
