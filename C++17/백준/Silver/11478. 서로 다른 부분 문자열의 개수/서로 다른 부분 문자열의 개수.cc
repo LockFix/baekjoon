@@ -9,15 +9,11 @@ int main() {
 
     string s; cin >> s;
     unordered_set<string> check;
-    int count = 0;
     for(int i = 0; i < s.length(); i++) {
         for(int j = 1; j <= s.length() - i; j++) {
             string temp = s.substr(i, j);
-            if(check.find(temp) == check.end()) {
-                count++;
-                check.insert(temp);
-            }
+            check.insert(temp);
         }
     }
-    cout << count;
+    cout << check.size();
 }   
