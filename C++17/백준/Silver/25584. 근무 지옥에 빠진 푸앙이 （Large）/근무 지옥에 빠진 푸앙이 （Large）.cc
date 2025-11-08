@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <unordered_map>
 #include <algorithm>
 #include <vector>
 
@@ -12,7 +12,7 @@ int main() {
 
     short N; cin >> N;
     int sum = 0;
-    map<string, int> map;
+    unordered_map<string, int> map;
     while(N--) {
         for(int i = 0; i < 7; i++) {
             string temp; cin >> temp;
