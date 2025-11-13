@@ -16,7 +16,6 @@ int main() {
     cnt[N] = 0;
     while(!q.empty()) {
         int temp = q.front();
-        int size = q.size();
         temp = q.front();
         if(temp < M && cnt[temp * 2] > cnt[temp]) {
             q.push(temp * 2);
