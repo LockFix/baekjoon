@@ -18,12 +18,12 @@ int main() {
     while(!q.empty()) {
         int temp = q.front();
         bool flag = true;
-        queue<int> q2;
-        while(!q.empty()) {
+        int size = q.size();
+        for(int i = 0; i < size; i++) {
             temp = q.front();
-            if((temp < M && !visited[temp * 2]) || temp * 2 == M) q2.push(temp * 2);
-            if((temp + 1 <= M && !visited[temp + 1]) || temp + 1 == M) q2.push(temp + 1);
-            if((temp - 1 > 0 && !visited[temp - 1]) || temp - 1 == M) q2.push(temp - 1);
+            if((temp < M && !visited[temp * 2]) || temp * 2 == M) q.push(temp * 2);
+            if((temp + 1 <= M && !visited[temp + 1]) || temp + 1 == M) q.push(temp + 1);
+            if((temp - 1 > 0 && !visited[temp - 1]) || temp - 1 == M) q.push(temp - 1);
             if(temp == M) {
                 ans++;
                 flag = false;
@@ -32,7 +32,6 @@ int main() {
             visited[temp] = true;
         }
         if(!flag) break;
-        q = q2;
         cnt++;
     }
     cout << cnt << '\n' << ans;
