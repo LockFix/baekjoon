@@ -1,6 +1,5 @@
 #include <iostream>
 #include <queue>
-#include <unordered_set>
 
 using namespace std;
 
@@ -12,25 +11,25 @@ int main() {
     int N, M; cin >> N >> M;
     queue<int> q;
     q.push(N);
-    unordered_set<int> visited;
+    bool visited[200001];
     int cnt = 0;
     int ans = 0;
-    visited.insert(N);
+    visited[N] = true;
     while(!q.empty()) {
         int temp = q.front();
         bool flag = true;
         queue<int> q2;
         while(!q.empty()) {
             temp = q.front();
-            if((temp < M && visited.find(temp * 2) == visited.end()) || temp * 2 == M) q2.push(temp * 2);
-            if((temp + 1 <= M && visited.find(temp + 1) == visited.end()) || temp + 1 == M) q2.push(temp + 1);
-            if((temp - 1 > 0 && visited.find(temp - 1) == visited.end()) || temp - 1 == M) q2.push(temp - 1);
+            if((temp < M && !visited[temp * 2]) || temp * 2 == M) q2.push(temp * 2);
+            if((temp + 1 <= M && !visited[temp + 1]) || temp + 1 == M) q2.push(temp + 1);
+            if((temp - 1 > 0 && !visited[temp - 1]) || temp - 1 == M) q2.push(temp - 1);
             if(temp == M) {
                 ans++;
                 flag = false;
             }
             q.pop();
-            visited.insert(temp);
+            visited[temp] = true;
         }
         if(!flag) break;
         q = q2;
