@@ -1,6 +1,5 @@
 #include <iostream>
 #include <queue>
-#include <unordered_set>
 
 using namespace std;
 
@@ -10,27 +9,17 @@ int main() {
     cout.tie(0);
     
     int A, B; cin >> A >> B;
-    queue<int> q;
-    int cnt = 0;
-    unordered_set<long long> visited;
-    q.push(A);
-    long long temp = A;
-    while(!q.empty() && temp != B) {
-        int size = q.size();
-        while(size-- && temp != B) {
-            temp = q.front();
-            if(temp * 2 <= B && visited.find(temp * 2) == visited.end()) {
-                visited.insert(temp * 2);
-                q.push(temp * 2);
-            }
-            if(temp * 10 + 1 <= B && visited.find(temp * 10 + 1) == visited.end()) {
-                visited.insert(temp * 10 + 1);
-                q.push(temp * 10 + 1);
-            }
-            q.pop();
-        }
-        cnt++;
+    queue<pair<int, int>> q;
+    q.push({A, 1});
+    pair<long long, int> temp = {A, 0};
+    while(!q.empty() && temp.first != B) {
+        temp = q.front();
+        long long a = temp.first * 2;
+        long long b = temp.first * 10 + 1;
+        if(a <= B) q.push({a, temp.second + 1});
+        if(b <= B) q.push({b, temp.second + 1});
+        q.pop();
     }
-    if(temp == B) cout << cnt;
+    if(temp.first == B) cout << temp.second;
     else cout << -1;
 }
