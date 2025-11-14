@@ -23,9 +23,9 @@ int main() {
                 visited.insert(temp * 2);
                 q.push(temp * 2);
             }
-            if(stoll(to_string(temp) + '1') <= B && visited.find(stoll(to_string(temp) + '1')) == visited.end()) {
-                visited.insert(stoll(to_string(temp) + '1'));
-                q.push(stoll(to_string(temp) + '1'));
+            if(temp * 10 + 1 <= B && visited.find(temp * 10 + 1) == visited.end()) {
+                visited.insert(temp * 10 + 1);
+                q.push(temp * 10 + 1);
             }
             q.pop();
         }
