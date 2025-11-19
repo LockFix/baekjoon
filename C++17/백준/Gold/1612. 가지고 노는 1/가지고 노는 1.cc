@@ -1,5 +1,4 @@
 #include <iostream>
-#include <unordered_set>
 
 using namespace std;
 
@@ -11,12 +10,12 @@ int main() {
     cout.tie(0);
     
     int N; cin >> N;
+    bool check[1000000] = {false, };
     
-    unordered_set<int> s;
     int cnt = 0;
     int a = 0;
-    while(s.find(a) == s.end()) {
-        s.insert(a);
+    while(!check[a]) {
+        check[a] = true;
         a *= 10;
         a += 1;
         a %= N;
