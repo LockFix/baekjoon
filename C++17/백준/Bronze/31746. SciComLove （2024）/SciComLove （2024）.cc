@@ -7,7 +7,7 @@ int main() {
     cin.tie(0);
     cout.tie(0);
 
-    short n; cin >> n;
+    int n; cin >> n;
 
     if(n % 2 == 0) {
         cout << "SciComLove";
