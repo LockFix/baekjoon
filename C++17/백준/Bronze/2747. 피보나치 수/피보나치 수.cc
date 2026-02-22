@@ -3,9 +3,15 @@
 using namespace std;
 
 int fib(short n) {
-    if(n == 2) return 1;
-    if(n == 3) return 2;
-    return fib(n - 1) + fib(n - 2);
+    if(n <= 2) return 1;
+
+    int a = 1, b = 1;
+    for(short i = 3; i <= n; i++) {
+        int c = a + b;
+        a = b;
+        b = c;
+    }
+    return b;
 }
 
 int main() {
@@ -14,6 +20,5 @@ int main() {
     cout.tie(0);
 
     short n; cin >> n;
-    if(n == 1) cout << 1;
-    else cout << fib(n);
+    cout << fib(n);
 }
